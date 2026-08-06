@@ -1,50 +1,38 @@
-#include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 
 int main()
 {
-    //ClapTrap
+    ScavTrap scav("Guardian");
 
-    ClapTrap clap("Bob");
-
-    clap.attack("Enemy");
-    clap.takeDamage(5);
-    clap.beRepaired(3);
-
-    //ScavTrap
-
-    ScavTrap scav("Ann");
-
-    scav.attack("Sc_Enemy");
+    scav.attack("Bandit");
     scav.takeDamage(30);
-    scav.beRepaired(10);
+    scav.beRepaired(20);
     scav.guardGate();
 
+    ScavTrap copy(scav);
 
-    // //Scav Copy constructor test
-    // std::cout << "ScavTrap copy constructor test" << std::endl;
+    copy.attack("Copy Target");
+    copy.guardGate();
 
-    // ScavTrap scav_copy(scav);
+    std::cout << "\n----- Zero Hit Points -----\n" << std::endl;
 
-    // scav_copy.attack("Copy target");
-    // scav_copy.guardGate();
+    ScavTrap dead("Dead");
 
-    //Energy Test
+    dead.takeDamage(150);
+
+    dead.attack("Nobody");
+    dead.beRepaired(10);
+    dead.guardGate();
+
+    std::cout << "\n----- Energy Exhaustion ------\n" << std::endl;
 
     ScavTrap tired("Tired");
 
-    for(int i = 0; i < 47; i++)
-        tired.attack("Training dummy");
+    for (int i = 0; i < 50; i++)
+        tired.attack("Training Dummy");
+
+    tired.attack("Enemy");
     tired.beRepaired(10);
 
-    //Zero Hit points
-
-    ScavTrap defeated("Defeated");
-
-    defeated.takeDamage(200);
-    defeated.attack("Enemy");
-    defeated.beRepaired(10);
-    defeated.guardGate();
-
-    return (0);
+    return 0;
 }

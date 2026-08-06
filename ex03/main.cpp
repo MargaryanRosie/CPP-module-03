@@ -2,19 +2,46 @@
 
 int main()
 {
-    DiamondTrap first("Bob");
+    DiamondTrap defaultDiamond;
 
-    first.whoAmI();
-    first.attack("enemy");
-    first.guardGate();
-    first.highFivesGuys();
+    defaultDiamond.whoAmI();
+    defaultDiamond.attack("Default target");
+    defaultDiamond.guardGate();
+    defaultDiamond.highFivesGuys();
 
-    DiamondTrap second(first);
-    second.whoAmI();
+    DiamondTrap diamond("Diamond");
 
-    DiamondTrap third;
-    third = first;
-    third.whoAmI();
+    diamond.whoAmI();
+    diamond.attack("Enemy");
+    diamond.takeDamage(40);
+    diamond.beRepaired(20);
+    diamond.guardGate();
+    diamond.highFivesGuys();
 
-    return (0);
+    std::cout << "\n----- ZERO HIT POINTS ------\n"
+        << std::endl;
+
+    DiamondTrap defeated("Defeated");
+
+    defeated.takeDamage(150);
+
+    defeated.attack("Nobody");
+    defeated.beRepaired(10);
+
+    defeated.whoAmI();
+    defeated.guardGate();
+    defeated.highFivesGuys();
+
+
+    std::cout << "\n----- DAMAGE GREATER THAN HEALTH -----\n"
+        << std::endl;
+
+    DiamondTrap overDamaged("OverDamaged");
+
+    overDamaged.takeDamage(1000);
+
+    overDamaged.attack("Enemy");
+    overDamaged.beRepaired(50);
+
+    return 0;
 }

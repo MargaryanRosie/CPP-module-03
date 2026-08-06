@@ -1,5 +1,15 @@
 #include "ClapTrap.hpp"
 
+ClapTrap::ClapTrap()
+{
+    _name = "Default";
+    _hitPoints = 10;
+    _energyPoints = 10;
+    _attackDamage = 0;
+
+    std::cout << "ClapTrap default constructor called" << std::endl;
+}
+
 ClapTrap::ClapTrap(std::string name)
 {
     _name = name;
@@ -75,7 +85,7 @@ void ClapTrap::takeDamage(unsigned int amount)
         return;
     }
 
-    if (amount >= static_cast<unsigned int>(_hitPoints))
+    if (amount >= _hitPoints)
         _hitPoints = 0;
     else
         _hitPoints -= amount;

@@ -84,7 +84,7 @@ void ClapTrap::takeDamage(unsigned int amount)
         return;
     }
 
-    if (amount >= static_cast<unsigned int>(_hitPoints))
+    if (amount >= _hitPoints)
         _hitPoints = 0;
     else
         _hitPoints -= amount;

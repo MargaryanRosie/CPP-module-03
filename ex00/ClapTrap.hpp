@@ -8,10 +8,11 @@ class ClapTrap
 {
 private:
     std::string _name;
-    int _hitPoints;
-    int _energyPoints;
-    int _attackDamage;
+    unsigned int _hitPoints;
+    unsigned int _energyPoints;
+    unsigned int _attackDamage;
 public:
+    ClapTrap();
     ClapTrap(std::string name);
     ClapTrap(const ClapTrap &other);
     ClapTrap& operator=(const ClapTrap &other);
